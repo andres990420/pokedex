@@ -18,6 +18,7 @@ La Pokédex es una aplicación web que proporciona información detallada sobre 
 ## Tecnología
 
 - **CSS**: Estilos y presentación visual de la interfaz.
+- **bootstrap**: Uso de estilos para la interfaz.
 - **HTML**: Estructura de la interfaz.
 - **JavaScript**: Lógica de la aplicación y modulación del código.
 - **PokeApi**: API utilizada para obtener los datos de los Pokémon.
