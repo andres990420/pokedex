@@ -1,7 +1,7 @@
 # Pokédex
 
 Bienvenido a la Pokédex, un proyecto inspirado en la famosa enciclopedia de Pokémon. Esta aplicación te permite buscar y visualizar información sobre diferentes Pokémon.
-![alt text]({2C52572E-F0DD-43A0-A004-587B85E86CE8}.png)
+![alt text](/img_pokedex/{2C52572E-F0DD-43A0-A004-587B85E86CE8}.png)
 
 ## Descripción
 
@@ -13,7 +13,7 @@ La Pokédex es una aplicación web que proporciona información detallada sobre 
 - Visualización de las habilidades y tipos de cada Pokémon.
 - Interfaz de usuario intuitiva y receptiva.
 
-![alt text]({553D2E03-1F33-404E-B135-EECDF79BCD78}.png)
+![alt text](/img_pokedex/{553D2E03-1F33-404E-B135-EECDF79BCD78}.png)
 
 ## Tecnología
 
