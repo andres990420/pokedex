@@ -32,12 +32,7 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu máquina local:
     git clone https://github.com/andres990420/pokedex.git
     ```
 
-2. Navega al directorio del proyecto:
-    ```sh
-    cd pokedex
-    ```
-
-3. Abre el archivo **index.html** usando la extensión de local server y disfruta de la aplicación.
+2. Abre el archivo **index.html** usando la extensión de local server y disfruta de la aplicación.
 
 ## Créditos
 
