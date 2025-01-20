@@ -1,11 +1,9 @@
 const UrlBase = 'https://pokeapi.co/api/v2/pokemon/';
-const ultimoElemento = 1025;
-const primerElemento = 0;
 
 
-export async function obtenerListaDePokemons()
+export async function obtenerListaDePokemons(offset = 10000, limit = 0)
 {
-    const response = await fetch(`${UrlBase}?offset=${primerElemento}&limit=${ultimoElemento}`);
+    const response = await fetch(`${UrlBase}?offset=${limit}&limit=${offset}`);
     const listaPokemons =  await response.json();
     return listaPokemons;
 }
