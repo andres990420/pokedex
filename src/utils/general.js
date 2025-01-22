@@ -1,4 +1,8 @@
-export function obtenerTiposPokemons(tiposPokemon)
+export function obtenerHabilidadOculta(habilidadesPokemon)
 {
-    null
+  const habilidadOculta = habilidadesPokemon.find(ability => ability.is_hidden)
+  if(habilidadOculta)
+    {
+      return habilidadOculta.ability.name
+    }
 }
