@@ -1,23 +1,16 @@
-const UrlBase = 'https://pokeapi.co/api/v2/pokemon/';
+const URL_BASE = 'https://pokeapi.co/api/v2/pokemon/';
 
 
 export async function obtenerListaDePokemons(offset = 10000, limit = 0)
 {
-    const response = await fetch(`${UrlBase}?offset=${limit}&limit=${offset}`);
+    const response = await fetch(`${URL_BASE}?offset=${limit}&limit=${offset}`);
     const listaPokemons =  await response.json();
     return listaPokemons;
 }
 
-export async function obtenerPokemonPorNombre(nombre)
+export async function obtenerPokemon(id)
 {
-    const response = await fetch(`${UrlBase}${nombre}`)
-    const pokemon = await response.json()
-    return pokemon;
-}
-
-export async function obtenerPokemonPorId(id)
-{
-    const response = await fetch(`${UrlBase}/${id}`);
+    const response = await fetch(`${URL_BASE}/${id}`);
     const pokemon = await response.json();
     return pokemon;
 }
