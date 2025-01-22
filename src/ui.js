@@ -1,4 +1,4 @@
-import { obtenerListaDePokemons, obtenerPokemonPorNombre, obtenerPokemonPorId } from "./api/pokeApi.js";
+import { obtenerListaDePokemons, obtenerPokemon } from "./api/pokeApi.js";
 import Pokemon from "./entities/pokemon.js";
 
 const $buscadorPokemons = document.querySelector('select');
@@ -25,18 +25,19 @@ export async function generarListaPokemon()
             let nombrePokemon = pokemon.name[0].toUpperCase() + (pokemon.name).substring(1);
             const option = document.createElement('option');
             option.innerText = nombrePokemon;
+            option.dataset.id = (pokemon.url).replace('https://pokeapi.co/api/v2/pokemon/','').replace('/','');
             $buscadorPokemons.appendChild(option);    
         })
 }
 
-$buscadorPokemons.onchange = async ()=>
+$buscadorPokemons.onchange = async (event)=>
     {
-        const pokemonABuscar = $buscadorPokemons.value.toLowerCase()
+        const pokemonABuscar = event.target.selectedOptions[0].dataset.id
         if(pokemonABuscar !== 'Buscar')
             {
-                const pokemon = new Pokemon(await (obtenerPokemonPorNombre(pokemonABuscar)));
+                const pokemon = new Pokemon(await (obtenerPokemon(pokemonABuscar)));
                 pokemon.id !== 1 ? $botonAnterior.removeAttribute('disabled') : '';
-                pokemon.id >= 1025 ? $botonSiguiente.setAttribute('disabled', true) : $botonSiguiente.removeAttribute('disabled');
+                pokemon.id >= $buscadorPokemons.lastChild.dataset.id ? $botonSiguiente.setAttribute('disabled', true) : $botonSiguiente.removeAttribute('disabled');
                 
                 definirId(pokemon.id);
                 definirNombre(pokemon.name);
@@ -51,9 +52,9 @@ $botonSiguiente.onclick = async () =>
     let idActual;
     $idPokemon.textContent !== '???' ? idActual = Number($idPokemon.textContent) : idActual = 0;
     
-    const pokemon = new Pokemon(await obtenerPokemonPorId(idActual+1));
-    pokemon.id !== 1 ? $botonAnterior.removeAttribute('disabled') : '';
-    pokemon.id  >= 1025 ? $botonSiguiente.setAttribute('disabled', true) : $botonSiguiente.removeAttribute('disabled');
+    const pokemon = new Pokemon(await obtenerPokemon(idActual+1));
+    pokemon.id > 1 ? $botonAnterior.removeAttribute('disabled') : '';
+    pokemon.id >= $buscadorPokemons.lastChild.dataset.id ? $botonSiguiente.setAttribute('disabled', true) : $botonSiguiente.removeAttribute('disabled');
 
     definirId(pokemon.id);
     definirNombre(pokemon.name);
@@ -69,11 +70,11 @@ $botonAnterior.onclick = async ()=>
     if(idActual === 1)
         {
             $botonAnterior.setAttribute('disabled', true)
-            
         }
     else
         {
-            const pokemon = new Pokemon(await obtenerPokemonPorId(idActual-1));
+            $botonSiguiente.removeAttribute('disabled');
+            const pokemon = new Pokemon(await obtenerPokemon(idActual-1));
             definirId(pokemon.id);
             definirNombre(pokemon.name);
             cambiarImagenPokemon(pokemon.sprite);
@@ -85,7 +86,9 @@ $botonAnterior.onclick = async ()=>
 
 function cambiarImagenPokemon(spritePokemon) 
 {
-    $imagenPokemon.setAttribute('src', spritePokemon);
+    let sprite;
+    spritePokemon === null ? sprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png' : sprite = spritePokemon;
+    $imagenPokemon.setAttribute('src', sprite);
 }
 
 function definirNombre(nombrePokemon)
@@ -100,12 +103,14 @@ function definirId(idPokemon)
 }
 
 function definirHabilidades(habilidadesPokemon, habilidadOculta) {
-    $habilidadPokemon.textContent = habilidadesPokemon[1] !== null ? `${habilidadesPokemon[0]} / ${habilidadesPokemon[1]}` : habilidadesPokemon[0];
-    $habilidadOcultaPokemon.textContent = habilidadOculta !== undefined ? habilidadOculta : '';
+    
+    $habilidadPokemon.textContent = habilidadesPokemon[1] !== undefined ? 
+        `${habilidadesPokemon[0]} / ${habilidadesPokemon[1]}` : habilidadesPokemon[0];
+    $habilidadOcultaPokemon.textContent = habilidadOculta !== null ? habilidadOculta : '';
 }
 
 function definirTipos(tiposPokemon) {
-
+    
     if (tiposPokemon.length > 1) 
         {
             $tipo1Pokemon.textContent = tiposPokemon[0];
