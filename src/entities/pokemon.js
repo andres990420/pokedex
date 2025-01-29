@@ -1,14 +1,15 @@
-import { obtenerHabilidadOculta } from "../utils/general.js";
+import { obtenerHabilidadOculta, obtenerDescripcion, obtenerTipos } from "../utils/general.js";
 
 class Pokemon 
 {
-  constructor(pokemon) {
+  constructor(pokemon, specie) {
     this.id = pokemon.id;
     this.name = pokemon.name;
-    this.types = pokemon.types.map(type => type.type.name);
+    this.types = obtenerTipos(pokemon.types);
     this.abilities = pokemon.abilities.map(ability => !ability.is_hidden ? ability.ability.name : undefined);
     this.sprite = pokemon.sprites.front_default;
     this.hiddenAbility = obtenerHabilidadOculta(pokemon.abilities);
+    this.description = obtenerDescripcion(specie);
   }
 };
 
