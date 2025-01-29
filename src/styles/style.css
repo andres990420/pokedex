@@ -2,86 +2,195 @@ body
     {
         display: flex;
         justify-content: center; 
-        align-items: center; 
+        align-items: center;
+        /* align-content: center;  */
         height: 100vh; 
         background-color: lightcoral; 
         margin: 5%;
-        background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ee914503-9a01-4bf8-a802-d45eb85fead7/di49x4-f14359e7-f0d9-4ed5-95f9-5557661aed24.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2VlOTE0NTAzLTlhMDEtNGJmOC1hODAyLWQ0NWViODVmZWFkN1wvZGk0OXg0LWYxNDM1OWU3LWYwZDktNGVkNS05NWY5LTU1NTc2NjFhZWQyNC5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.nmI5qfIri_shB6HxyaLufgDb_CdLWpzqSGwWD_g_B4s');
+        background-image: url('/images/background.png');
     }
     
     .pokedex
     {
-        background-color: red; 
-        height: 60%;
-        width: 100%;
+        background-color: #ff5555; 
+        height: 85%;
+        width: 85%;
+        border: 4px solid #000;
         border-radius: 5%;
         align-content: center;
-        align-items: center;
+        margin: 10px;
         position: relative;
         box-shadow: 7px 2px 10px 2px black;
-    }
-    .pokedex::before
-    {
-        background-color: blue;
-        position: absolute;
-        height: 5%;
-        width: 100%;
-        top: 0;
-        content: '';
-        border-top-right-radius: 15px;
-        border-top-left-radius: 15px;
-        left: 0;
-    }
-
-    .pokedex::after
-    {
-        background-color: blue;
-        position: absolute;
-        height: 5%;
-        width: 100%;
-        bottom: 0;
-        content: '';
-        border-bottom-right-radius: 15px;
-        border-bottom-left-radius: 15px;
-        left: 0;
+        text-align: center;
     }
     
     .screen
     {
-        width: 80%; 
-        height: 40%; 
+        width: 90%; 
+        height: 55vh; 
         background-color: lightblue; 
         border: 5px solid black; 
         border-radius: 10px; 
-        position: relative; 
-        margin: 25px 25px 25px 25px;
+        position: relative;
+        margin: auto;
         align-self: center;
-        top: 25px;
-        left: 25px;
-        
-        
+        align-items: center;
+        align-content: center;
     }
 
     .buttons
     {
         width: 100%; 
-        height: 5%; 
+        height: 10vh;
+        margin: auto;
         display: flex; 
         justify-content: center; 
         align-items: center; 
     }
     .button { 
-        width: 20%; 
-        height: 5%; 
+        width: 100%; 
+        height: 40%; 
         background-color: rgba(7, 7, 212, 0.824); 
-        border-radius: 50%; 
-        margin: 5% 10% 10%; 
+        border-radius: 20%; 
+        margin: 10px ;
+        border: 2px;
+        padding: 0; 
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
     .imagen-pokemon
     {
-        height: 15%;
-        width: 50%;
-        display: flex;
-        position: relative;
-        left: 25%;
+        height: 100%;
+        width: 99%;
+        text-align: center;
+        align-content: center;
+        border: 2px black solid;
+        margin: 10px;
+        background-image: url('/images/backgroundScreen.png');
+        background-size: cover;
+        background-position: center;
     }
+
+    .container-top-lights
+    {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 10vh;
+        border: auto;
+        margin: auto;
+    }
+
+    .top-light
+    {
+        height: 20%;
+        width: 5%;
+        background-color: #f0f0f0;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffeb3b, #fbc02d);
+        box-shadow: 
+            inset 1px 1px 2px rgba(0, 0, 0, 0.3),
+            inset -1px -1px 2px rgb(233, 229, 229),
+            1px 1px 2px rgba(0, 0, 0, 0.2);
+        margin: 7px 5px 5px 5px;
+    }
+
+    .top-left-light
+    {
+        height: 40%;
+        width: 9%;
+        border-radius: 50%;
+        margin: auto;
+        display: flex;
+        margin: 7px;
+    }
+
+    .contenedor-buscador-pokemons
+    {
+        display: flex;
+        margin: auto;
+        height: 8vh;
+        width: 80%;
+        text-align: center;
+    }
+
+    .buscador-pokemon
+    {
+        width: 100%;
+        height: 60%;
+        background-color: #ffdd57;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border-radius: 15px;
+    }
+
+    .boton-buscar
+    {
+        width: 90%;
+        height: 60%;
+        text-align: center;
+        border: none;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        border-radius: 10%;
+        background-color: #0ab933;
+        box-shadow: 0px 0px 5px 0px;}
+
+    .boton-buscar:active
+    {
+        box-shadow: 
+        inset 5px 5px 15px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 15px rgba(255, 255, 255, 0.5)
+    }
+
+    p, strong{
+        margin-bottom: 3px;
+    }
+
+    .camera-lens {
+
+        background: radial-gradient(circle, #444, #000);
+        border: 5px solid #222;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+    
+    .inner-lens {
+        width: 80%;
+        height: 80%;
+        background: radial-gradient(circle,#4a90e2, #222);
+        border-radius: 50%;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .reflection {
+        width: 20%;
+        height: 20%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+        border-radius: 50%;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* .light-effect {
+        width: 60%;
+        height: 60%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+        border-radius: 50%;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        opacity: 0.7;
+        animation: light-animation 2s infinite alternate;
+    } */
