@@ -17,7 +17,6 @@ const $descripcionPokemon = document.querySelector('#descripcion-pokemon');
 
 const $botonSiguiente = document.querySelector('#boton-siguiente');
 const $botonAnterior = document.querySelector('#boton-anterior');
-const $botonStats = document.querySelector('#boton-stats');
 
 const $buscadorPokemon = document.querySelector('#buscador-pokemon');
 const $botonBuscar = document.querySelector('#boton-buscar')
@@ -118,11 +117,6 @@ $botonBuscar.onclick = async () =>
     definirDescripcion(pokemon.description);
 
 }
-
-$botonStats.onclick = () => 
-    {
-        alert('Hola')
-    }
 
 function cambiarImagenPokemon(spritePokemon) 
 {
