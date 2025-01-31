@@ -64,7 +64,7 @@ $botonSiguiente.onclick = async () =>
     pokemon.id > 1 ? $botonAnterior.removeAttribute('disabled') : '';
     pokemon.id >= $listaPokemons.lastChild.id ? $botonSiguiente.setAttribute('disabled', true) : $botonSiguiente.removeAttribute('disabled');
 
-    $listaPokemons.selectedIndex = $listaPokemons.selectedIndex + 1
+    $listaPokemons.selectedIndex = $listaPokemons.selectedIndex + 1;
 
     definirId(pokemon.id);
     definirNombre(pokemon.name);
@@ -181,5 +181,5 @@ function definirTipos(tiposPokemon)
 
 function definirDescripcion(descripcion)
 {
-    $descripcionPokemon.textContent = descripcion;
+    $descripcionPokemon.textContent = descripcion ? descripcion : 'Descripcion no disponible';
 }
