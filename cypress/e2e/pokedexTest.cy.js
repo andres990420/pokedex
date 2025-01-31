@@ -142,8 +142,8 @@ describe('Prueba de pokedex', () => {
 
     it('Se vizualiza la informacion correctamente para pokemons sin informacion disponible', () => 
     {
-      cy.intercept('GET','https://pokeapi.co/api/v2/pokemon/10279', {fixture: 'jellicent.json'}).as('obtenerjellicent');
-      cy.intercept('GET','https://pokeapi.co/api/v2/pokemon-species/jellicent', {fixture: 'jellicent-specie.json'}).as('obtenerJellicentEspecie');
+      cy.intercept('https://pokeapi.co/api/v2/pokemon/10279', {fixture: 'jellicent.json'}).as('obtenerjellicent');
+      cy.intercept('https://pokeapi.co/api/v2/pokemon-species/jellicent', {fixture: 'jellicent-specie.json'}).as('obtenerJellicentEspecie');
       
       cy.get('#lista-pokemons').select('Jellicent-female');
 
