@@ -1,5 +1,23 @@
 {
   "devDependencies": {
     "cypress": "^13.17.0"
-  }
+  },
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex usando la PokeAPI",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cypress-dev": "cypress open",
+    "cypress-run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andres990420/pokedex.git"
+  },
+  "author": "Andres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andres990420/pokedex/issues"
+  },
+  "homepage": "https://github.com/andres990420/pokedex#readme"
 }
