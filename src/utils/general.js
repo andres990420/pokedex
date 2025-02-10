@@ -18,7 +18,7 @@ export function obtenerHabilidades(habilidadesPokemon)
   const habilidades = []; 
   habilidadesPokemon.map(ability => ability !== undefined ? habilidades.push(ability) : '');
 
-  return habilidades.length > 0 ? habilidades : 'Habilidades no disponible';
+  return habilidades.length > 0 ? habilidades : 'Habilidades no disponibles';
 }
 
 export function obtenerTipos(tiposPokemon)
